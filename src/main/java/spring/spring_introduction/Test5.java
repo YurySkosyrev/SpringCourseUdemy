@@ -5,13 +5,10 @@ import org.springframework.context.support.ClassPathXmlApplicationContext;
 public class Test5 {
     public static void main(String[] args) {
         ClassPathXmlApplicationContext context =
-                new ClassPathXmlApplicationContext("applicationContext2.xml");
+                new ClassPathXmlApplicationContext("applicationContext3.xml");
 
-        Dog myDog = context.getBean("myPet", Dog.class);
-        myDog.say();
-
-        Dog yourDog = context.getBean("myPet", Dog.class);
-        yourDog.say();
+       Person person = context.getBean("personBean", Person.class);
+       person.callYourPet();
 
         context.close();
     }
