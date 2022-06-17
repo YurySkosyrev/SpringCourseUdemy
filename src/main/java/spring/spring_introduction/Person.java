@@ -2,10 +2,18 @@ package spring.spring_introduction;
 
 public class Person {
     private Pet pet;
-
-    public Person(Pet pet){
-        this.pet = pet;
+    public Person(){
         System.out.println("Person bean is created");
+    }
+
+//    public Person(Pet pet){
+//        this.pet = pet;
+//        System.out.println("Person bean is created");
+//    }
+
+    public void setPet(Pet pet) {
+        this.pet = pet;
+        System.out.println("Pet is setted");
     }
 
     public void callYourPet(){
