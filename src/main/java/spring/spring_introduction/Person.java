@@ -5,6 +5,7 @@ public class Person {
 
     public Person(Pet pet){
         this.pet = pet;
+        System.out.println("Person bean is created");
     }
 
     public void callYourPet(){
