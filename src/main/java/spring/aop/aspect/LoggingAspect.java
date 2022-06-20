@@ -2,26 +2,27 @@ package spring.aop.aspect;
 
 import org.aspectj.lang.annotation.Aspect;
 import org.aspectj.lang.annotation.Before;
-import org.aspectj.lang.annotation.Pointcut;
+import org.springframework.core.annotation.Order;
 import org.springframework.stereotype.Component;
 
 @Component
 @Aspect
-public class LoggingAndSecurityAspect {
+@Order(1)
+public class LoggingAspect {
 
-      @Pointcut("execution(* spring.aop.UniLibrary.*(..))")
-      public void allMethodsFromUniLibrary(){};
-
-      @Pointcut("execution(* spring.aop.UniLibrary.returnMagazine())")
-      public void allReturnMagazineFromUniLibrary(){};
-
-      @Pointcut("allMethodsFromUniLibrary() && !allReturnMagazineFromUniLibrary()")
-      public void allMethodsExceptFromUniLibrary(){};
-
-      @Before("allMethodsExceptFromUniLibrary()")
-      public void beforeAllMethodsExceptReturnMagazineAdvice(){
-            System.out.println("beforeGetLoggingAdvice: writing Log #10");
-      }
+//      @Pointcut("execution(* spring.aop.UniLibrary.*(..))")
+//      public void allMethodsFromUniLibrary(){};
+//
+//      @Pointcut("execution(* spring.aop.UniLibrary.returnMagazine())")
+//      public void allReturnMagazineFromUniLibrary(){};
+//
+//      @Pointcut("allMethodsFromUniLibrary() && !allReturnMagazineFromUniLibrary()")
+//      public void allMethodsExceptFromUniLibrary(){};
+//
+//      @Before("allMethodsExceptFromUniLibrary()")
+//      public void beforeAllMethodsExceptReturnMagazineAdvice(){
+//            System.out.println("beforeGetLoggingAdvice: writing Log #10");
+//      }
 
 //      @Pointcut("execution(* spring.aop.UniLibrary.get*())")
 //      public void allGetMethodsFromUnilibrary(){};
@@ -47,18 +48,15 @@ public class LoggingAndSecurityAspect {
 //      public void beforeGetAndReturnLoggingAdvice(){
 //            System.out.println("beforeGetAndReturnLoggingAdvice: writing Log #3");
 //      }
-//    @Pointcut("execution(void get*())")
-//    private void getAllMethods(){};
-//
-//    @Before("getAllMethods()")
-//    public void beforeGetLoggingAdvice(){
-//        System.out.println("beforeGetLoggingAdvice: попытка получить книгу");
-//    }
-//
-//    @Before("getAllMethods()")
-//    public void beforeGetSecurityAdvice(){
-//        System.out.println("beforeSecurityBookAdvice: проверка прав на получение");
-//    }
+
+
+    @Before("spring.aop.aspect.MyPointcats.getAllMethods()")
+    public void beforeGetLoggingAdvice(){
+        System.out.println("beforeGetLoggingAdvice: логирование " +
+                "попытки получить книгу/журнал");
+    }
+
+
 //
 //    @Before("execution(public * returnBook())")
 //    public void beforeReturnBookAdvice(){
