@@ -1,14 +1,45 @@
 package spring.aop.aspect;
 
+import org.aspectj.lang.JoinPoint;
 import org.aspectj.lang.annotation.Aspect;
 import org.aspectj.lang.annotation.Before;
+import org.aspectj.lang.reflect.MethodSignature;
 import org.springframework.core.annotation.Order;
 import org.springframework.stereotype.Component;
+import spring.aop.Book;
 
 @Component
 @Aspect
 @Order(1)
 public class LoggingAspect {
+
+    @Before("spring.aop.aspect.MyPointcats.addAllMethods()")
+    public void beforeAddLoggingAdvice(JoinPoint joinPoint){
+        MethodSignature methodSignature = (MethodSignature) joinPoint.getSignature();
+        System.out.println("methodSignature = " + methodSignature);
+        System.out.println("methodSignature.getMethod() = " + methodSignature.getMethod());
+        System.out.println("methodSignature.getReturnType() = " + methodSignature.getReturnType());
+        System.out.println("methodSignature.getName() = " + methodSignature.getName());
+
+        if (methodSignature.getName().equals("addBook")){
+            Object[] arguments = joinPoint.getArgs();
+            for (Object obj:arguments){
+                if(obj instanceof Book){
+                    Book book = (Book)obj;
+                    System.out.println("Информация о книге: название - " +
+                            book.getName() + ", автор книги - " +
+                            book.getAuthor() + ", год издания - " + book.getYearOfPublication());
+
+                } else {
+                    System.out.println("Книгу в библиотеку добавляет " + obj);
+                }
+            }
+        }
+
+        System.out.println("beforeAddLoggingAdvice: логирование " +
+                "попытки получить книгу/журнал");
+        System.out.println("_________________________________________");
+    }
 
 //      @Pointcut("execution(* spring.aop.UniLibrary.*(..))")
 //      public void allMethodsFromUniLibrary(){};
@@ -50,11 +81,7 @@ public class LoggingAspect {
 //      }
 
 
-    @Before("spring.aop.aspect.MyPointcats.getAllMethods()")
-    public void beforeGetLoggingAdvice(){
-        System.out.println("beforeGetLoggingAdvice: логирование " +
-                "попытки получить книгу/журнал");
-    }
+
 
 
 //
