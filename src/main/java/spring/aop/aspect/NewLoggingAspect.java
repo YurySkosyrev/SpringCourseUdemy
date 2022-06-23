@@ -15,11 +15,15 @@ public class NewLoggingAspect {
     public Object afterGetStudentsAdvice(ProceedingJoinPoint proceedingJoinPoint) throws Throwable {
         System.out.println("В библиотеку пытаются вернуть книгу");
 
-        Long start = System.currentTimeMillis();
-        Object targetMethodResult = proceedingJoinPoint.proceed();
-        Long end = System.currentTimeMillis();
+        Object targetMethodResult = null;
 
-        System.out.println("Метод отработал за " + (end-start) + " миллисекунд");
+        try {
+            targetMethodResult = proceedingJoinPoint.proceed();
+        }
+        catch (Exception ex){
+            System.out.println(ex);
+            throw ex;
+        }
 
         System.out.println("В библиотеку успешно вернули книгу");
 
