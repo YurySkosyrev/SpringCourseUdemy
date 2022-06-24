@@ -8,7 +8,6 @@
 
         <property name="connection.url">jdbc:mysql://localhost:3306/my_db?useSSL=false&amp;serverTimezone=UTC</property>
         <property name="hibernate.connection.driver_class">com.mysql.cj.jdbc.Driver</property>
-        <property name="hibernate.connection.url">jdbc:postgresql://localhost/register_office</property>
         <property name="hibernate.connection.username">bestuser</property>
         <property name="hibernate.connection.password">bestuser</property>
         <property name="current_session_context_class">thread</property>
