@@ -122,7 +122,7 @@ public class Test {
 
             session.beginTransaction();
 
-            Child child = session.get(Child.class, 8);
+            Child child = session.get(Child.class, 7);
 
             session.delete(child);
             session.getTransaction().commit();
