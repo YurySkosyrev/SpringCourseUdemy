@@ -28,6 +28,8 @@ Language(s):
     </c:forEach>
 </ul>
 <br><br>
+phoneNumber:${employee.phoneNumber}
+<br><br>
 </body>
 
 </html>
