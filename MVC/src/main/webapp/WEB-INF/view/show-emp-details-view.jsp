@@ -12,24 +12,26 @@
 <%--Your name: ${param.employeeName}--%>
 
 Your name: ${employee.name}
-<br><br>
+<br>
 Your surname: ${employee.surname}
-<br><br>
+<br>
 Your salary: ${employee.salary}
-<br><br>
+<br>
 Your department: ${employee.department}
-<br><br>
+<br>
 Your car: ${employee.carBrand}
-<br><br>
+<br>
 Language(s):
 <ul>
     <c:forEach var="lang" items="${employee.languages}">
         <li>${lang}</li>
     </c:forEach>
 </ul>
-<br><br>
+<br>
 phoneNumber:${employee.phoneNumber}
-<br><br>
+<br>
+email:${employee.email}
+<br>
 </body>
 
 </html>
