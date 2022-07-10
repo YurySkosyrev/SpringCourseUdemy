@@ -6,6 +6,7 @@
 
     <h2>All Employees</h2>
     <br>
+    <br>
     <table>
         <tr>
             <th>Name</th>
