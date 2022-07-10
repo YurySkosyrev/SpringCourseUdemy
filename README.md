@@ -5,7 +5,7 @@
   <li>Aspect Oriented Programming</li>
   <li>Hibernate Framework</li>
   <li>Spring MVC</li>
-  <li>Spring Security</li>
   <li>Spring REST</li>
+  <li>Spring Security</li>
   <li>Spring Boot</li>
 </ul>
