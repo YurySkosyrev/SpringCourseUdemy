@@ -7,14 +7,14 @@
 
     <br>
     <br>
-    <form:form action="showDetails" modelAttribute="employee">
+    <form:form action="showDetails" modelAttribute="employee" method="get">
         Name <form:input path="name"/>
         <form:errors path="name"/>
         <br><br>
-        Name <form:input path="surname"/>
+        Surname <form:input path="surname"/>
         <form:errors path="surname"/>
         <br><br>
-        Name <form:input path="salary"/>
+        Salary <form:input path="salary"/>
         <form:errors path="salary"/>
         <br><br>
         Department <form:select path="department">
