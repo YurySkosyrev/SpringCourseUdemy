@@ -31,7 +31,7 @@
                 <td>${emp.surname}</td>
                 <td>${emp.department}</td>
                 <td>${emp.salary}</td>
-                <td><input type="button" value="Add"
+                <td><input type="button" value="Update"
                 onclick="window.location.href = '${updateButton}'"/>
                 <input type="button" value="Delete"
                            onclick="window.location.href = '${deleteButton}'"/>
