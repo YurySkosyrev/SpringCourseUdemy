@@ -1,5 +1,5 @@
-<h1>Spring для начинающих</h1>
-<h2>Используемые технологии:</h2>
+<h1>Spring for beginners (Udemy course)</h1>
+<h2>The topics list:</h2>
 <ul>
   <li>Inversion of Control и Dependency Injection</li>
   <li>Aspect Oriented Programming</li>
